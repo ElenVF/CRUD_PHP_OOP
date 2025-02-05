@@ -11,17 +11,15 @@ class ActionController{
     public function actionInsert() { 
 
         session_start(); // Инициализация сессии
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add']) ) { 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])  && isset($_SESSION['user_id'])) { 
             $name = $_POST['name'] ?? null; 
-            $phone = $_POST['phone'] ?? null; 
-            $email = $_POST['email'] ?? null; 
             $comment = $_POST['comment'] ?? null; 
 
-         
+            $user_id = $_SESSION['user_id'] ?? null; 
                
-                if ($name && $phone && $email && $comment) { 
+                if ($name && $comment && $user_id) { 
                     // Вставка данных в модель
-                    if ($this->model->insert($name, $phone, $email, $comment)) {  
+                    if ($this->model->insert($name, $comment,$user_id )) {  
                         $_SESSION['message'] = 'Запись успешно сохранена!'; 
                         $_SESSION['message_type'] = 'success'; // Устанавливаем тип сообщения 
                     } else {  

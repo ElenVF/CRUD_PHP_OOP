@@ -168,18 +168,10 @@
       <div class="modal-body">
      <form action="index.php" method="post">
      <div class="mb-3">
-    <label for="name" class="form-label name">Имя</label>
-    <input type="text" class="form-control name" id="name" name="name" aria-describedby="name" placeholder="Вася Александрович Пупкин">
+    <label for="name" class="form-label name">Тема обращения</label>
+    <input type="text" class="form-control name" id="name" name="name" aria-describedby="name">
     </div>
-    <div class="mb-3">
-    <label for="phone" class="form-label phone">Телефон</label>
-    <input type="tel" class="form-control phone" id="phone"  name="phone" aria-describedby="phone" placeholder="89219999999">
-    </div>
-     <div class="mb-3">
-    <label for="email" class="form-label email">Адрес электронной почты</label>
-    <input type="email" class="form-control email" id="email"  name="email" aria-describedby="emailHelp" placeholder="mail@mail.com">
-    <div id="emailHelp" class="form-text">Мы никогда никому не передадим вашу электронную почту.</div>
-  </div>
+  
 
   <div class="mb-3">
   <label for="comment" class="form-label">Комментарий</label>

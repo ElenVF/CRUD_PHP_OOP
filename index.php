@@ -49,7 +49,8 @@ require_once('action.php');
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Главная</font></font></a>
-            </li> <?php if ($isAuthenticated && !$RoleUser): ?>
+            </li> <?php if ($isAuthenticated): ?>
+              <?php if (!$RoleUser): ?>
             <li class="nav-item">
               <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Админ. панель</font></font></a>
             </li>
@@ -57,6 +58,7 @@ require_once('action.php');
             <li class="nav-item">
               <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Заявки</font></font></a>
             </li>
+            <?php endif; ?>
             <?php endif; ?>
            
           </ul>
@@ -79,7 +81,7 @@ require_once('action.php');
     
 
 <?php include_once('listBids.php')?>
-<?php if ($isAuthenticated && $RoleUser ):   ?>
+<?php if ($isAuthenticated && !$RoleUser ):   ?>
   <?php include_once('listUsers.php') 
 ?>
        <?php endif; ?>
@@ -88,8 +90,14 @@ require_once('action.php');
   <footer class="py-3 my-4 ">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Главная</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Контакты</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Заявки</a></li>
+  
+      <?php if ($isAuthenticated):?>
+        <?php if (!$RoleUser): ?> <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Заявки</a></li>  <?php else: ?>
+        <li class="nav-item">
+              <a class="nav-link" href="#">Админ. панель</a>
+            </li>
+            <?php endif; ?>
+        <?php endif; ?>
     
     </ul>
     <p class="text-center text-body-secondary">© 2024 Company, Inc</p>

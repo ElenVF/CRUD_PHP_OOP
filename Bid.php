@@ -7,13 +7,13 @@ public function __construct($db){
 }
 
 
-public function insert($name,$phone,$email,$comment)
+public function insert($name, $comment, $user_id)
 {
 
     if(isset($_POST['add'])){
-    $sql = "INSERT INTO bid (name, phone, email, comment) VALUES (:name, :phone, :email, :comment)";
+    $sql = "INSERT INTO bid (name, comment, user_id) VALUES (:name, :comment, :user_id)";
     $stmt=$this->conn->prepare($sql);
-     return $stmt->execute(['name'=>$name,'phone'=>$phone,'email'=>$email,'comment'=>$comment]);}
+     return $stmt->execute(['name'=>$name, 'comment'=>$comment, 'user_id'=>$user_id]);}
     
 }
 public function read()
@@ -30,12 +30,12 @@ public function read()
     
 }
 
-public function update($id,$name,$phone,$email,$comment)
+public function update($id,$name,$comment)
 {
     if(isset($_POST['edit'])){
-    $sql ="UPDATE bid SET name=:name, phone=:phone, email=:email,comment=:comment WHERE id=:id";
+    $sql ="UPDATE bid SET name=:name,comment=:comment WHERE id=:id";
     $stmt=$this->conn->prepare($sql);
-    return $stmt->execute(['id'=>$id,'name'=>$name,'phone'=>$phone,'email'=>$email,'comment'=>$comment]);
+    return $stmt->execute(['id'=>$id,'name'=>$name,'comment'=>$comment]);
     }
 
 }

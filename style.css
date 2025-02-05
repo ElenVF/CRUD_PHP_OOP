@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+  html,
+  body {
+    height: 100%;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .content {
+    flex: 1 0 auto;
+  }
+  .footer {
+    flex: 0 0 auto;
+  }
+
+  .alert {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    display: inline-block; /* Убедитесь, что блок виден */
+}
+
+.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.error {
+    background-color: #f2dede;
+    color: #a94442;
+}

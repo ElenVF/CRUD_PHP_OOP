@@ -1,10 +1,11 @@
 
 <div class="content">
-    <h1 class="title text-center mt-5">Заявки</h1>
+    <h1 class="title text-center mt-5">Заявки</h1>  <?php if ($isAuthenticated  ): ?>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
-  <button class="btn btn-outline-success me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#addModal">Создать заявку</button>
   
-</div>
+    <button class="btn btn-outline-success me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#addModal">Создать заявку</button>
+  
+</div>  <?php endif; ?>
 <div class="mb-5 "></div>
 
 <?php if (!empty($bids)): ?>
@@ -33,7 +34,7 @@
       <td>
         <div class="col-12 text-center"> 
         <a href="?id=<?= $bid['id'] ?>" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#infoModal<?= $bid['id'] ?>"><i class="fa fa-info" aria-hidden="true"></i></a>&nbsp
-        <?php if (!$isAuthenticatedRole): ?>
+        <?php if ($isAuthenticated  && !$RoleUser): ?>
   
         <a href="?id=<?= $bid['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $bid['id'] ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>&nbsp
       <a href="?id=<?= $bid['id'] ?>" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal<?= $bid['id'] ?>"> <i class="fa fa-pencil-square" aria-hidden="true"></i></a>

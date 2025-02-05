@@ -182,9 +182,10 @@ class ActionController{
                     } else { 
                         $_SESSION['message'] = 'Пожалуйста, заполните все поля.'; // Сообщение об ошибке  
                         $_SESSION['message_type'] = 'error';  
-                        header('Location: index.php'); // Перенаправление на нужную страницу  
-                        exit();  
+                         
                     } 
+                    header('Location: index.php'); // Перенаправление на нужную страницу  
+                        exit(); 
                 } 
             }
         

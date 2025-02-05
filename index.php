@@ -49,7 +49,7 @@ require_once('action.php');
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Главная</font></font></a>
-            </li> <?php if (!$isAuthenticatedRole): ?>
+            </li> <?php if ($isAuthenticated && !$RoleUser): ?>
             <li class="nav-item">
               <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Админ. панель</font></font></a>
             </li>
@@ -79,7 +79,7 @@ require_once('action.php');
     
 
 <?php include_once('listBids.php')?>
-<?php if (!$isAuthenticatedRole):   ?>
+<?php if ($isAuthenticated && $RoleUser ):   ?>
   <?php include_once('listUsers.php') 
 ?>
        <?php endif; ?>

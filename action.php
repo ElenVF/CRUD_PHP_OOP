@@ -23,7 +23,7 @@ $actionController=new ActionController($db);
     $users=$user->readUser();
     $isAuthenticated = isset($_SESSION['user_id']);
 
-    $isAuthenticatedRole = isset($_SESSION['role_id']) && $_SESSION['role_id']=='user';
+    $RoleUser=isset($_SESSION['role_id']) && $_SESSION['role_id']=='user';
 
 
 ?>

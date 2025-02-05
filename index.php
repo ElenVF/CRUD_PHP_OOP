@@ -92,7 +92,7 @@ require_once('action.php');
       <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Главная</a></li>
   
       <?php if ($isAuthenticated):?>
-        <?php if (!$RoleUser): ?> <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Заявки</a></li>  <?php else: ?>
+        <?php if ($RoleUser): ?> <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Заявки</a></li>  <?php else: ?>
         <li class="nav-item">
               <a class="nav-link" href="#">Админ. панель</a>
             </li>

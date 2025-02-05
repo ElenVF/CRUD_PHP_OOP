@@ -13,26 +13,29 @@
   <thead>
     <tr class="text-center">
       <th scope="col">ID</th>
-      <th scope="col">ИМЯ</th>
-      <th scope="col">НОМЕР</th>
-      <th scope="col">EMAIL</th>
+      <th scope="col">ТЕМА ОБРАЩЕНИЯ</th>
+  
       <th scope="col">КОММЕНТАРИЙ</th>
-
+      <th scope="col">ИМЯ</th>
+      <th scope="col">ЛОГИН</th>
+      <th scope="col">EMAIL</th>
       <th scope="col">ДЕЙСТВИЕ</th>
+
      </tr>
   </thead>
   <tbody>
 
   <?php foreach ($bids as $bid): ?>
-    <tr class="text-center">
+    <tr class="text">
       <td ><?= $bid['id'] ?></td>
       <td> <?= $bid['name'] ?></td>
-      <td><?= $bid['phone']?></td>
-      <td><?= $bid['email']?></td>
       <td><?= $bid['comment']?></td>
+      <td> <?= $bid['user_name'] ?></td>
+      <td> <?= $bid['user_login'] ?></td>
+      <td> <?= $bid['user_email'] ?></td>
     
       <td>
-        <div class="col-12 text-center"> 
+        <div class="col-12 "> 
         <a href="?id=<?= $bid['id'] ?>" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#infoModal<?= $bid['id'] ?>"><i class="fa fa-info" aria-hidden="true"></i></a>&nbsp
         <?php if ($isAuthenticated  && !$RoleUser): ?>
   

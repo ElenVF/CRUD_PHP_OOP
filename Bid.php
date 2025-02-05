@@ -18,7 +18,10 @@ public function insert($name, $comment, $user_id)
 }
 public function read()
 {
-    $sql = "SELECT * FROM bid";
+    $sql = "SELECT bid.*, users.name AS user_name,users.login AS user_login , users.email AS user_email 
+        FROM bid 
+        JOIN users ON bid.user_id = users.id";
+
     $stmt=$this->conn->prepare($sql);
     if( $stmt->execute()){
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

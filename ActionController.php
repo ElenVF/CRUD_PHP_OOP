@@ -60,9 +60,9 @@ class ActionController{
     
              
                    
-                    if ($id && $name && $phone && $email && $comment) { 
+                    if ($id && $name && $comment) { 
                         // Вставка данных в модель
-                        if ($this->model->update($id, $name,$phone, $email, $comment)) {  
+                        if ($this->model->update($id, $name, $comment)) {  
                             $_SESSION['message'] = 'Запись успешно сохранена!'; 
                             $_SESSION['message_type'] = 'success'; // Устанавливаем тип сообщения 
                         } else {  
@@ -174,6 +174,7 @@ class ActionController{
                         // Успешная авторизация
                         $_SESSION['user_id'] = $user['id']; 
                         $_SESSION['login'] = $user['login']; 
+                       
                         $_SESSION['role'] = $user['role']; 
                         $_SESSION['message'] = 'Добро пожаловать, '.$login.'! Вы успешно  авторизованы';  
                         $_SESSION['message_type'] = 'success'; // Устанавливаем тип сообщения   

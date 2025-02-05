@@ -10,7 +10,7 @@
 <?php if (!empty($users)): ?>
     <table class="table table-hover mt-5">
   <thead>
-    <tr class="text-center">
+    <tr class="text">
       <th scope="col">ID</th>
       <th scope="col">ЛОГИН</th>
       <th scope="col">ИМЯ</th>
@@ -23,7 +23,7 @@
   <tbody>
 
   <?php foreach ($users as $user): ?>
-    <tr class="text-center">
+    <tr class="text">
       <td ><?= $user['id'] ?></td>
       <td><?= $user['login']?></td>
       <td> <?= $user['name'] ?></td>
@@ -32,7 +32,7 @@
      
     
       <td>
-        <div class="col-12 text-center"> 
+        <div class="col-12 text"> 
         <a href="?id=<?= $user['id'] ?>" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#infoModalUser<?= $user['id'] ?>"><i class="fa fa-info" aria-hidden="true"></i></a>&nbsp
   
         <a href="?id=<?= $user['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalUser<?= $user['id'] ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>&nbsp

@@ -4,15 +4,17 @@ class ActionController
     private $model;
     private $user;
     public function __construct($db)
-    {
+    {   session_start();
         $this->model = new Bid($db);
-        $this->user = new User($db);
+        $this->user = new User($db); 
+         
     }
+
 
     public function actionInsert()
     {
 
-        session_start();
+      
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])  && isset($_SESSION['user_id'])) {
             $name = $_POST['name'] ?? null;
             $comment = $_POST['comment'] ?? null;
@@ -49,7 +51,7 @@ class ActionController
     public function actionUpdate()
     {
 
-        session_start();
+
         $id = isset($_GET['id']) ? $_GET['id'] : null;
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edit'])) {
 
@@ -109,7 +111,7 @@ class ActionController
 
     public function actionRegistration()
     {
-        session_start();
+        
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && (isset($_POST['reg']) || isset($_POST['addUser']))) {
             $name = $_POST['name'] ?? null;
             $login = $_POST['login'] ?? null;
@@ -171,8 +173,7 @@ class ActionController
 
     public function actionAuthorization()
     {
-        session_start();
-
+        
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['autho'])) {
             $login = $_POST['login'];
             $password = $_POST['password'];
@@ -202,7 +203,7 @@ class ActionController
 
     public function actionLogout()
     {
-        session_start();
+       
 
         // Проверяем, действительно ли пользователь хочет выйти
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['logout'])) {
@@ -241,7 +242,6 @@ class ActionController
     public function actionUpdateUser()
     {
 
-        session_start();
         $id = isset($_GET['id']) ? $_GET['id'] : null;
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editUser'])) {
 

@@ -1,13 +1,8 @@
 <?php
 require_once('action.php');
-
 ?>
-
-
-
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,14 +19,12 @@ require_once('action.php');
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 </head>
-
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
   <script>
     // Проверяем, есть ли сообщение в сессии
     <?php if (isset($_SESSION['message'])): ?>
       swal({
         title: "<?php echo $_SESSION['message']; ?>",
-
         icon: "success",
         button: "ОК",
       });
@@ -79,7 +72,6 @@ require_once('action.php');
                 </li>
               <?php endif; ?>
             <?php endif; ?>
-
           </ul>
           <form class="d-flex mb-2 mb-lg-0">
             <div>
@@ -97,17 +89,13 @@ require_once('action.php');
         </div>
       </div>
     </nav>
-
-
     <?php include_once('listBids.php') ?>
     <?php if ($isAuthenticated && !$RoleUser):  include_once('listUsers.php') ?>
     <?php endif; ?>
-
     <div class="container">
       <footer class="py-3 my-4 ">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
           <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Главная</a></li>
-
           <?php if ($isAuthenticated): ?>
             <?php if ($RoleUser): ?> <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Заявки</a></li> <?php else: ?>
               <li class="nav-item">
@@ -115,19 +103,10 @@ require_once('action.php');
               </li>
             <?php endif; ?>
           <?php endif; ?>
-
         </ul>
         <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
       </footer>
     </div>
-
-
-
-
-
-
-
-
 
     <!-- Modal REGISTRATION-->
     <div class="modal fade" id="regModal" tabindex="-1" aria-labelledby="regModalLabel" aria-hidden="true">
@@ -156,13 +135,10 @@ require_once('action.php');
                 <input type="email" class="form-control email" id="email" name="email" aria-describedby="emailHelp" placeholder="mail@mail.com">
                 <div id="emailHelp" class="form-text">Мы никогда никому не передадим вашу электронную почту.</div>
               </div>
-
               <div class="mb-3">
                 <label for="password" class="form-label password">Пароль</label>
                 <input type="password" class="form-control password" id="password" name="password" aria-describedby="passwordHelp">
-
               </div>
-
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
@@ -171,12 +147,8 @@ require_once('action.php');
           </form>
         </div>
       </div>
-
     </div>
-
-
-
-
+    
     <!-- Modal AUTHOR-->
     <div class="modal fade" id="authoModal" tabindex="-1" aria-labelledby="authoModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -191,14 +163,10 @@ require_once('action.php');
                 <label for="login" class="form-label login">Логин</label>
                 <input type="text" class="form-control login" id="login" name="login" aria-describedby="login" placeholder="Login123331">
               </div>
-
-
               <div class="mb-3">
                 <label for="password" class="form-label password">Пароль</label>
                 <input type="password" class="form-control password" id="password" name="password" aria-describedby="passwordHelp">
-
               </div>
-
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
@@ -207,15 +175,9 @@ require_once('action.php');
           </form>
         </div>
       </div>
-
     </div>
-
     <script>
       $(document).ready(function() {
-
-
-
-
         $("table").DataTable({
           order: [0, 'desc'],
           language: {
@@ -232,17 +194,9 @@ require_once('action.php');
               "sPrevious": "<i class='fa fa-chevron-left'></i>", // Стрелка назад
               "sNext": "<i class='fa fa-chevron-right'></i>" // Стрелка вперед
             }
-
-
           }
-
-
         });
       });
     </script>
-
-
-
 </body>
-
 </html>

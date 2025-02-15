@@ -1,29 +1,23 @@
 <div class="content">
   <h1 class="title text-center mt-5">Заявки</h1> <?php if ($isAuthenticated): ?>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
-
       <button class="btn btn-outline-success me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#addModal">Создать заявку</button>
-
     </div> <?php endif; ?>
   <div class="mb-5 "></div>
-
   <?php if (!empty($bids)): ?>
     <table class="table table-hover mt-5">
       <thead>
         <tr class="text-center">
           <th scope="col">ID</th>
           <th scope="col">ТЕМА ОБРАЩЕНИЯ</th>
-
           <th scope="col">КОММЕНТАРИЙ</th>
           <th scope="col">ИМЯ</th>
           <th scope="col">ЛОГИН</th>
           <th scope="col">EMAIL</th>
           <th scope="col">ДЕЙСТВИЕ</th>
-
         </tr>
       </thead>
       <tbody>
-
         <?php foreach ($bids as $bid): ?>
           <tr class="text">
             <td><?= $bid['id'] ?></td>
@@ -32,25 +26,16 @@
             <td> <?= $bid['user_name'] ?></td>
             <td> <?= $bid['user_login'] ?></td>
             <td> <?= $bid['user_email'] ?></td>
-
             <td>
               <div class="col-12 ">
                 <a href="?id=<?= $bid['id'] ?>" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#infoModal<?= $bid['id'] ?>"><i class="fa fa-info" aria-hidden="true"></i></a>&nbsp
                 <?php if ($isAuthenticated  && !$RoleUser): ?>
-
                   <a href="?id=<?= $bid['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $bid['id'] ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>&nbsp
                   <a href="?id=<?= $bid['id'] ?>" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal<?= $bid['id'] ?>"> <i class="fa fa-pencil-square" aria-hidden="true"></i></a>
               </div>
             </td>
-
-
           <?php endif; ?>
           </tr>
-
-
-
-
-
           <!-- Modal edit -->
           <div class="modal fade" id="editModal<?= $bid['id'] ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -65,12 +50,10 @@
                       <label for="name" class="form-label name">Тема обращения</label>
                       <input type="text" class="form-control name" id="name" name="name" aria-describedby="name" value="<?= $bid['name'] ?>" required>
                     </div>
-
                     <div class="mb-3">
                       <label for="comment" class="form-label">Комментарий</label>
                       <textarea class="form-control comment" id="comment" name="comment" rows="3"><?= $bid['comment'] ?></textarea>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
@@ -79,10 +62,7 @@
                 </form>
               </div>
             </div>
-
           </div>
-
-
 
           <!-- Modal delete -->
           <div class="modal fade" id="deleteModal<?= $bid['id'] ?>" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -92,9 +72,6 @@
                   <form action="?id=<?= $bid['id'] ?>" method="post">
                     <input type="hidden" name="id" value="<?= $bid['id'] ?>">
                     <h1 class="modal-title fs-5" id="deleteModalLabel">Удалить заявку</h1>
-
-
-
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
@@ -103,10 +80,7 @@
                 </form>
               </div>
             </div>
-
           </div>
-
-
 
           <!-- Modal info -->
           <div class="modal fade" id="infoModal<?= $bid['id'] ?>" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
@@ -117,39 +91,26 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-
                   <div class="card col-md-8 offset-md-2" style="width: 18rem; border: none;">
-
-
                     <ul class="list-group list-group-flush">
-
                       <li class="list-group-item">Логин: <?= $bid['user_login'] ?></li>
                       <li class="list-group-item">Имя: <?= $bid['user_name'] ?></li>
                       <li class="list-group-item">Email: <?= $bid['user_email'] ?></li>
                       <li class="list-group-item">Тема обращения: <?= $bid['name'] ?></li>
                       <li class="list-group-item">Комментарий: <?= $bid['comment'] ?></li>
-
                     </ul>
-
                   </div>
-
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-
                 </div>
               </div>
             </div>
           </div>
-
 </div>
-
-
 <?php endforeach; ?>
 <?php else: ?>
   <li>Нет доступных заявок.</li>
-
   </tbody>
 <?php endif; ?>
 </table>
@@ -169,13 +130,10 @@
             <label for="name" class="form-label name">Тема обращения</label>
             <input type="text" class="form-control name" id="name" name="name" aria-describedby="name">
           </div>
-
-
           <div class="mb-3">
             <label for="comment" class="form-label">Комментарий</label>
             <textarea class="form-control comment" id="comment" name="comment" rows="3"></textarea>
           </div>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
@@ -184,5 +142,4 @@
       </form>
     </div>
   </div>
-
 </div>

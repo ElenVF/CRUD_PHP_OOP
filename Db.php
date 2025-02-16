@@ -15,14 +15,11 @@ class  Db
             echo $e->getMessage();
         }
     }
-
-
     // Метод для подготовки SQL-запроса
     public function prepare($sql)
     {
         return $this->conn->prepare($sql);
     }
-
     // Метод для выполнения SQL-запроса
     public function execute($stmt, $params = [])
     {
